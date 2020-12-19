@@ -68,7 +68,7 @@ public class MybatisPlusGenerator {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);
         strategy.setEntityTableFieldAnnotationEnable(true);
-        strategy.setInclude("user");
+        strategy.setInclude("user_role");
         mpg.setStrategy(strategy);
         mpg.execute();
     }
