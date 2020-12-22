@@ -36,7 +36,6 @@ public class UserController {
     @PostMapping("/retrive")
     public BaseResponse<GetUserInfoDto> retriveUser(@RequestBody @Validated RetriveUserVo retriveUserVo){
         UserWithRoleBo userWithRoleBo = userServiceImpl.getUserWithRoleByUsername(retriveUserVo.getUsername());
-        System.out.println("userWithRoleBo.toString() = " + userWithRoleBo.toString());
         if (Objects.isNull(userWithRoleBo) || StringUtils.isNullOrEmpty(userWithRoleBo.getUsername())){
             return BaseResponse.error(ResponseCodeEnum.RESPONSE_CODE_NULL_FAILURE.getCode(),"用户不存在");
         }else{
