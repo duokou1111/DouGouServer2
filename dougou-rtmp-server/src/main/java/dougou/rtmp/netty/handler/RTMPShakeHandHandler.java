@@ -1,4 +1,4 @@
-package dougou.rtmp.rest.handler;
+package dougou.rtmp.netty.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
-import java.util.Date;
 
 /**
  * @program: DouGouServer2

@@ -1,6 +1,7 @@
-package dougou.rtmp.rest.handler;
+package dougou.rtmp.netty.handler;
 
-import com.rtmp.core.model.RTMPDecodeState;
+import dougou.rtmp.netty.model.RTMPChunk;
+import dougou.rtmp.netty.model.RTMPDecodeState;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -26,8 +27,8 @@ public class RTMPDecoder extends ReplayingDecoder<RTMPDecodeState> {
         if (state == null) {
             state(RTMPDecodeState.DECODE_HEADER);
         }
-        //如果状态在读消息头
-        if (state == RTMPDecodeState.DECODE_HEADER) {
+        //最大消息头长度为18，所以readableBytes要大于18
+        if (state == RTMPDecodeState.DECODE_HEADER && in.readableBytes() >= 18) {
             RTMPChunk rtmpChunk = new RTMPChunk();
             RTMPChunkBasicHeader rtmpChunkBasicHeader = readChunkBasicHeader(in);
             RTMPChunkMessageHeader rtmpChunkMessageHeader = readChunkMessageHeader(in, rtmpChunkBasicHeader.getChunkType());

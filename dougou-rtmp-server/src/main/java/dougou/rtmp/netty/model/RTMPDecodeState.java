@@ -1,4 +1,4 @@
-package com.rtmp.core.model;
+package dougou.rtmp.netty.model;
 
 /**
  * @program: DouGouServer2

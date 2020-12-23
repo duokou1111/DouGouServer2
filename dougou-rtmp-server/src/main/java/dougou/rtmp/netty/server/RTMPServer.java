@@ -1,6 +1,6 @@
-package dougou.rtmp.rest.server;
+package dougou.rtmp.netty.server;
 
-import dougou.rtmp.rest.handler.RTMPShakeHandHandler;
+import dougou.rtmp.netty.handler.RTMPShakeHandHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -19,7 +19,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @create: 2020/12/23/023
  **/
 public class RTMPServer {
-    public void init(int port, ConfigurableApplicationContext configurableApplicationContext) throws InterruptedException {
+    public void init(int port) throws InterruptedException {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
         //创建服务器启动对象配置参数

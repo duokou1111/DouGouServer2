@@ -11,10 +11,24 @@
 
     <artifactId>dougou-rtmp-server</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>dougou-rtmp-core</module>
-        <module>dougou-rtmp-rest</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>
