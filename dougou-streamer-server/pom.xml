@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dougou-streamer-server</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dougou-streamer-core</module>
+    </modules>
 
 
 </project>
