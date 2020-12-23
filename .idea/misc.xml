@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/dougou-rtmp-rest/pom.xml" />
         <option value="$PROJECT_DIR$/dougou-web-core/pom.xml" />
       </set>
     </option>

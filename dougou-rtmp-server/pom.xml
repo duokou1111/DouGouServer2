@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dougou-rtmp-server</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dougou-rtmp-core</module>
+        <module>dougou-rtmp-rest</module>
+    </modules>
 
 
 </project>
