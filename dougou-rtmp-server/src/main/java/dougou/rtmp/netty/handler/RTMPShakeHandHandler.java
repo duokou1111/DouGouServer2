@@ -87,7 +87,7 @@ public class RTMPShakeHandHandler extends ChannelInboundHandlerAdapter {
             log.info("RTMPServer HandShake Completed!");
             //将剩余未读完的字节交给下一个Handler
             ctx.fireChannelRead(heapBuf);
-            //销毁当前Handler
+            //销毁当前Handler，因为之后都不需要握手了
             ctx.channel().pipeline().remove(RTMPShakeHandHandler.class);
         }
 

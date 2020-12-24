@@ -10,10 +10,9 @@
         <module name="dougou-web-core" />
         <module name="dougou-admin-server" />
         <module name="dougou-streamer-core" />
-        <module name="dougou-rtmp-core" />
-        <module name="dougou-rtmp-rest" />
         <module name="dougou-web-rest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

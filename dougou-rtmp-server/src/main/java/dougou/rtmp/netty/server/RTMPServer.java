@@ -1,6 +1,9 @@
 package dougou.rtmp.netty.server;
 
+import dougou.rtmp.netty.handler.RTMPDecoder;
+import dougou.rtmp.netty.handler.RTMPMessageHandler;
 import dougou.rtmp.netty.handler.RTMPShakeHandHandler;
+import dougou.rtmp.netty.model.RTMPMessage;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -31,14 +34,18 @@ public class RTMPServer {
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        socketChannel.pipeline().addLast(new RTMPShakeHandHandler());
+                        socketChannel.pipeline().addLast(new RTMPShakeHandHandler())
+                                .addLast(new RTMPDecoder())
+                                .addLast(new RTMPMessageHandler());
                     }
                 });//workerGroup的eventLoop对于的管道处理器
         System.out.println("....服务器isReady");
         ChannelFuture cf = serverBootstrap.bind(port).sync();
         cf.channel().closeFuture().sync();
-    }
-    public static void main(String[] args) {
 
+    }
+    public static void main(String[] args) throws InterruptedException {
+        RTMPServer server = new RTMPServer();
+        server.init(7071);
     }
 }
